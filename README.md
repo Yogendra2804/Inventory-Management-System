@@ -29,3 +29,5 @@ It supports both **Command-Line Interface (CLI)** and **Graphical User Interface
 ```bash
 git clone https://github.com/Yogendra2804/inventory-management-system.git
 cd inventory-management-system
+2. Run from CLI
+Follow the prompts to select CLI or GUI mode.
