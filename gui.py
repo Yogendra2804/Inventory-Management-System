@@ -8,6 +8,11 @@ def show_gui_inventory():
         if int(widget.grid_info()["row"]) >= 6:
             widget.destroy()
     row_num = 6
+
+    if not inventory:
+        tk.Label(root, text="📦 Inventory is empty!", fg="blue").grid(row=row_num, column=0, columnspan=3)
+        return
+
     for id, item in inventory.items():
         label = tk.Label(root, text=f"ID: {id} | Name: {item['name']} | Price: ₹{item['price']} | Qty: {item['quantity']}")
         label.grid(row=row_num, column=0, columnspan=3, pady=2)
@@ -15,7 +20,7 @@ def show_gui_inventory():
             low_stock_item.add(item["name"])
         row_num += 1
     if low_stock_item:
-        tk.Label(root, text=f"Low Stock Items: {', '.join(low_stock_item)}", fg="red").grid(row=row_num, column=0, columnspan=3)
+        tk.Label(root, text=f"⚠️ Low Stock Items: {', '.join(low_stock_item)}", fg="red").grid(row=row_num, column=0, columnspan=3)
 
 def add_gui_item():
     global item_Id
